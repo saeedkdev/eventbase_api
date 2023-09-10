@@ -12,9 +12,8 @@ class SponsorController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index(): void
-    {
-        //
+    public function index() {
+        return Sponsor::paginate();
     }
 
     /**
@@ -36,9 +35,8 @@ class SponsorController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Sponsor $sponsor): void
-    {
-        //
+    public function show(Sponsor $sponsor): Sponsor {
+        return $sponsor;
     }
 
     /**

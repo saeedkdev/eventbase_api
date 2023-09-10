@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\Api\V1\AttendeeController;
 use App\Http\Controllers\Api\V1\SessionController;
-
+use App\Http\Controllers\Api\V1\SponsorController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -25,5 +25,6 @@ Route::group(['prefix' => 'v1', 'namespace' => 'App\Http\Controllers\Api\V1'], f
 
     Route::apiResource('attendees', AttendeeController::class);
     Route::apiResource('sessions', SessionController::class);
+    Route::apiResource('sponsors', SponsorController::class);
 
 });
