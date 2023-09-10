@@ -7,6 +7,8 @@ use App\Http\Requests\StoreAttendeeRequest;
 use App\Http\Requests\UpdateAttendeeRequest;
 use App\Models\Attendee;
 use Illuminate\Database\Eloquent\Collection;
+use App\Http\Resources\V1\AttendeeResource;
+use App\Http\Resources\V1\AttendeeCollection;
 
 class AttendeeController extends Controller
 {
@@ -14,9 +16,8 @@ class AttendeeController extends Controller
      * Display a listing of the resource.
      * @return Collection<int,Attendee>
      */
-    public function index(): Collection {
-        //
-        $attendees = Attendee::all();
+    public function index(): AttendeeCollection {
+        $attendees = new AttendeeCollection(Attendee::all());
         return $attendees;
     }
 
@@ -30,8 +31,8 @@ class AttendeeController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Attendee $attendee): void {
-        //
+    public function show(Attendee $attendee): AttendeeResource {
+        return new AttendeeResource($attendee);
     }
 
     /**
