@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api\V1;
 
+use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreSessionRequest;
 use App\Http\Requests\UpdateSessionRequest;
 use App\Models\Session;
@@ -11,7 +12,7 @@ class SessionController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(): void
     {
         //
     }
@@ -19,7 +20,7 @@ class SessionController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(): void
     {
         //
     }
@@ -27,7 +28,7 @@ class SessionController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreSessionRequest $request)
+    public function store(StoreSessionRequest $request): void
     {
         //
     }
@@ -35,7 +36,7 @@ class SessionController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Session $session)
+    public function show(Session $session): void
     {
         //
     }
@@ -43,7 +44,7 @@ class SessionController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Session $session)
+    public function edit(Session $session): void
     {
         //
     }
@@ -51,7 +52,7 @@ class SessionController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateSessionRequest $request, Session $session)
+    public function update(UpdateSessionRequest $request, Session $session): void
     {
         //
     }
@@ -59,7 +60,7 @@ class SessionController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Session $session)
+    public function destroy(Session $session): void
     {
         //
     }

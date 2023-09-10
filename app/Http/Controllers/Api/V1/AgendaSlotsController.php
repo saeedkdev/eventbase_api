@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api\V1;
 
+use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreAgendaSlotsRequest;
 use App\Http\Requests\UpdateAgendaSlotsRequest;
 use App\Models\AgendaSlots;
@@ -11,7 +12,7 @@ class AgendaSlotsController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(): void
     {
         //
     }
@@ -19,7 +20,7 @@ class AgendaSlotsController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(): void
     {
         //
     }
@@ -27,7 +28,7 @@ class AgendaSlotsController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreAgendaSlotsRequest $request)
+    public function store(StoreAgendaSlotsRequest $request): void
     {
         //
     }
@@ -35,7 +36,7 @@ class AgendaSlotsController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(AgendaSlots $agendaSlots)
+    public function show(AgendaSlots $agendaSlots): void
     {
         //
     }
@@ -43,7 +44,7 @@ class AgendaSlotsController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(AgendaSlots $agendaSlots)
+    public function edit(AgendaSlots $agendaSlots): void
     {
         //
     }
@@ -51,7 +52,7 @@ class AgendaSlotsController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateAgendaSlotsRequest $request, AgendaSlots $agendaSlots)
+    public function update(UpdateAgendaSlotsRequest $request, AgendaSlots $agendaSlots): void
     {
         //
     }
@@ -59,7 +60,7 @@ class AgendaSlotsController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(AgendaSlots $agendaSlots)
+    public function destroy(AgendaSlots $agendaSlots): void
     {
         //
     }
