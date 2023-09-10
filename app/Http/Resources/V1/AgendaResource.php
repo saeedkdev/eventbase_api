@@ -14,6 +14,10 @@ class AgendaResource extends JsonResource
      */
     public function toArray(Request $request): array
     {
-        return parent::toArray($request);
+        return [
+            'id' => $this->id,
+            'attendeeID' => $this->attendie_id,
+            'title' => $this->title,
+        ];
     }
 }

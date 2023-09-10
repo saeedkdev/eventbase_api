@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\V1\AgendaController;
 use App\Http\Controllers\Api\V1\AttendeeController;
 use App\Http\Controllers\Api\V1\SessionController;
 use App\Http\Controllers\Api\V1\SponsorController;
@@ -26,5 +27,6 @@ Route::group(['prefix' => 'v1', 'namespace' => 'App\Http\Controllers\Api\V1'], f
     Route::apiResource('attendees', AttendeeController::class);
     Route::apiResource('sessions', SessionController::class);
     Route::apiResource('sponsors', SponsorController::class);
+    Route::apiResource('agendas', AgendaController::class);
 
 });

@@ -5,16 +5,28 @@ namespace App\Http\Controllers\Api\V1;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreAgendaRequest;
 use App\Http\Requests\UpdateAgendaRequest;
+use App\Http\Resources\V1\AgendaResource;
+use App\Http\Resources\V1\AgendaCollection;
 use App\Models\Agenda;
+use App\Services\V1\AgendaQuery;
+use Illuminate\Http\Request;
 
 class AgendaController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index(): void
-    {
-        //
+    public function index(Request $request): AgendaCollection {
+
+        $query = new AgendaQuery();
+        $queryItems = $query->transform($request);
+
+        if(empty($queryItems)) {
+            return new AgendaCollection(Agenda::paginate());
+        } else {
+            return new AgendaCollection(Agenda::where($queryItems)->paginate());
+        }
+
     }
 
     /**
@@ -36,9 +48,8 @@ class AgendaController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Agenda $agenda): void
-    {
-        //
+    public function show(Agenda $agenda): AgendaResource {
+        return new AgendaResource($agenda);
     }
 
     /**
