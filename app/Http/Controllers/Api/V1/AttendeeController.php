@@ -9,6 +9,8 @@ use App\Models\Attendee;
 use Illuminate\Database\Eloquent\Collection;
 use App\Http\Resources\V1\AttendeeResource;
 use App\Http\Resources\V1\AttendeeCollection;
+use Illuminate\Http\Request;
+use App\Services\V1\AttendeeQuery;
 
 class AttendeeController extends Controller
 {
@@ -16,9 +18,16 @@ class AttendeeController extends Controller
      * Display a listing of the resource.
      * @return Collection<int,Attendee>
      */
-    public function index(): AttendeeCollection {
-        $attendees = new AttendeeCollection(Attendee::all());
-        return $attendees;
+    public function index(Request $request): AttendeeCollection {
+
+        $query = new AttendeeQuery();
+        $queryItems = $query->transform($request);
+
+        if(empty($queryItems)) {
+            return new AttendeeCollection(Attendee::paginate());
+        } else {
+            return new AttendeeCollection(Attendee::where($queryItems)->paginate());
+        }
     }
 
     /**
