@@ -46,7 +46,13 @@ class AttendeeController extends Controller
      * Display the specified resource.
      */
     public function show(Attendee $attendee): AttendeeResource {
+
+        $agendas = request()->query('agendas');
+        if($agendas) {
+            return new AttendeeResource($attendee->loadMissing('agendas'));
+        }
         return new AttendeeResource($attendee);
+
     }
 
     /**
