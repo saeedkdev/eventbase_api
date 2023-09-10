@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('agendas', function (Blueprint $table) {
             $table->id();
+            $table->string('title');
+            // belongs to attendee
+            $table->unsignedBigInteger('attendie_id');
             $table->timestamps();
         });
     }

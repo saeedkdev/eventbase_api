@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Attendee;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -17,7 +18,8 @@ class AgendaFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'title' => $this->faker->randomElement(['My Agenda', 'My Schedule', 'My Itinerary', 'My Calendar']),
+            'attendie_id' => Attendee::factory(),
         ];
     }
 }

@@ -13,6 +13,12 @@ return new class extends Migration
     {
         Schema::create('agenda_slots', function (Blueprint $table) {
             $table->id();
+            $table->unsignedInteger('agenda_id');
+            $table->unsignedInteger('session_id');
+            $table->dateTime('start_time');
+            $table->dateTime('end_time');
+            $table->date('date');
+            $table->text('details');
             $table->timestamps();
         });
     }
