@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             // belongs to attendee
-            $table->unsignedBigInteger('attendie_id');
+            $table->unsignedBigInteger('attendee_id');
             $table->timestamps();
         });
     }

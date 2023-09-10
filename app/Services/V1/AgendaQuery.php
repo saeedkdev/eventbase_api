@@ -14,7 +14,7 @@ class AgendaQuery extends ApiQuery {
     ];
 
     protected $columnMap = [
-        'attendeeID' => 'attendie_id',
+        'attendeeID' => 'attendee_id',
         'createdAt' => 'created_at'
     ];
 }

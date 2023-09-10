@@ -16,7 +16,7 @@ class AgendaResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'attendeeID' => $this->attendie_id,
+            'attendeeID' => $this->attendee_id,
             'title' => $this->title,
         ];
     }

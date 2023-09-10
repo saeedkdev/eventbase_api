@@ -23,11 +23,16 @@ class AttendeeController extends Controller
         $query = new AttendeeQuery();
         $queryItems = $query->transform($request);
 
-        if(empty($queryItems)) {
-            return new AttendeeCollection(Attendee::paginate());
-        } else {
-            return new AttendeeCollection(Attendee::where($queryItems)->paginate());
+        $agendas = $request->query('agendas');
+
+        $attendees = Attendee::where($queryItems);
+
+        if ($agendas) {
+            $attendees = $attendees->with('agendas');
         }
+
+        return new AttendeeCollection($attendees->paginate()->appends($request->query()));
+
     }
 
     /**

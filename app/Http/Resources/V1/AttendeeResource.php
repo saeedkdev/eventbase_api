@@ -20,6 +20,7 @@ class AttendeeResource extends JsonResource
             'lastName' => $this->last_name,
             'email' => $this->email,
             'bio' => $this->bio,
+            'agendas' => AgendaResource::collection($this->whenLoaded('agendas'))
         ];
     }
 }

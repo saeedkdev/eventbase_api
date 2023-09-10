@@ -19,7 +19,7 @@ class AgendaFactory extends Factory
     {
         return [
             'title' => $this->faker->randomElement(['My Agenda', 'My Schedule', 'My Itinerary', 'My Calendar']),
-            'attendie_id' => Attendee::factory(),
+            'attendee_id' => Attendee::factory(),
         ];
     }
 }
