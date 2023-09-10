@@ -6,15 +6,27 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreAgendaSlotsRequest;
 use App\Http\Requests\UpdateAgendaSlotsRequest;
 use App\Models\AgendaSlots;
+use App\Services\V1\AgendaSlotsQuery;
+use App\Http\Resources\V1\AgendaSlotsResource;
+use App\Http\Resources\V1\AgendaSlotsCollection;
+use Illuminate\Http\Request;
 
 class AgendaSlotsController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index(): void
-    {
-        //
+    public function index(Request $request): AgendaSlotsCollection {
+
+        $query = new AgendaSlotsQuery();
+        $queryItems = $query->transform($request);
+
+        if(empty($queryItems)) {
+            return new AgendaSlotsCollection(AgendaSlots::paginate());
+        } else {
+            return new AgendaSlotsCollection(AgendaSlots::where($queryItems)->paginate());
+        }
+
     }
 
     /**
@@ -36,9 +48,8 @@ class AgendaSlotsController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(AgendaSlots $agendaSlots): void
-    {
-        //
+    public function show(AgendaSlots $agendaSlots) : AgendaSlotsResource {
+        return new AgendaSlotsResource($agendaSlots);
     }
 
     /**

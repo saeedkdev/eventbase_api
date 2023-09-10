@@ -4,6 +4,8 @@ use App\Http\Controllers\Api\V1\AgendaController;
 use App\Http\Controllers\Api\V1\AttendeeController;
 use App\Http\Controllers\Api\V1\SessionController;
 use App\Http\Controllers\Api\V1\SponsorController;
+use App\Http\Controllers\Api\V1\AgendaSlotsController;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -28,5 +30,6 @@ Route::group(['prefix' => 'v1', 'namespace' => 'App\Http\Controllers\Api\V1'], f
     Route::apiResource('sessions', SessionController::class);
     Route::apiResource('sponsors', SponsorController::class);
     Route::apiResource('agendas', AgendaController::class);
+    Route::apiResource('agenda-slots', AgendaSlotsController::class);
 
 });
