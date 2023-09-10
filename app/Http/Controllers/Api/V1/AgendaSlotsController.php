@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api\V1;
 
-use App\Http\Requests\StoreAgendaRequest;
-use App\Http\Requests\UpdateAgendaRequest;
-use App\Models\Agenda;
+use App\Http\Requests\StoreAgendaSlotsRequest;
+use App\Http\Requests\UpdateAgendaSlotsRequest;
+use App\Models\AgendaSlots;
 
-class AgendaController extends Controller
+class AgendaSlotsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -27,7 +27,7 @@ class AgendaController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreAgendaRequest $request)
+    public function store(StoreAgendaSlotsRequest $request)
     {
         //
     }
@@ -35,7 +35,7 @@ class AgendaController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Agenda $agenda)
+    public function show(AgendaSlots $agendaSlots)
     {
         //
     }
@@ -43,7 +43,7 @@ class AgendaController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Agenda $agenda)
+    public function edit(AgendaSlots $agendaSlots)
     {
         //
     }
@@ -51,7 +51,7 @@ class AgendaController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateAgendaRequest $request, Agenda $agenda)
+    public function update(UpdateAgendaSlotsRequest $request, AgendaSlots $agendaSlots)
     {
         //
     }
@@ -59,7 +59,7 @@ class AgendaController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Agenda $agenda)
+    public function destroy(AgendaSlots $agendaSlots)
     {
         //
     }

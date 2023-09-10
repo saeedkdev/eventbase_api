@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api\V1;
 
-use App\Http\Requests\StoreAgendaSlotsRequest;
-use App\Http\Requests\UpdateAgendaSlotsRequest;
-use App\Models\AgendaSlots;
+use App\Http\Requests\StoreSponsorRequest;
+use App\Http\Requests\UpdateSponsorRequest;
+use App\Models\Sponsor;
 
-class AgendaSlotsController extends Controller
+class SponsorController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -27,7 +27,7 @@ class AgendaSlotsController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreAgendaSlotsRequest $request)
+    public function store(StoreSponsorRequest $request)
     {
         //
     }
@@ -35,7 +35,7 @@ class AgendaSlotsController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(AgendaSlots $agendaSlots)
+    public function show(Sponsor $sponsor)
     {
         //
     }
@@ -43,7 +43,7 @@ class AgendaSlotsController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(AgendaSlots $agendaSlots)
+    public function edit(Sponsor $sponsor)
     {
         //
     }
@@ -51,7 +51,7 @@ class AgendaSlotsController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateAgendaSlotsRequest $request, AgendaSlots $agendaSlots)
+    public function update(UpdateSponsorRequest $request, Sponsor $sponsor)
     {
         //
     }
@@ -59,7 +59,7 @@ class AgendaSlotsController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(AgendaSlots $agendaSlots)
+    public function destroy(Sponsor $sponsor)
     {
         //
     }

@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api\V1;
 
-use App\Http\Requests\StoreSessionRequest;
-use App\Http\Requests\UpdateSessionRequest;
-use App\Models\Session;
+use App\Http\Requests\StoreAttendeeRequest;
+use App\Http\Requests\UpdateAttendeeRequest;
+use App\Models\Attendee;
 
-class SessionController extends Controller
+class AttendeeController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -27,7 +27,7 @@ class SessionController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreSessionRequest $request)
+    public function store(StoreAttendeeRequest $request)
     {
         //
     }
@@ -35,7 +35,7 @@ class SessionController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Session $session)
+    public function show(Attendee $attendee)
     {
         //
     }
@@ -43,7 +43,7 @@ class SessionController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Session $session)
+    public function edit(Attendee $attendee)
     {
         //
     }
@@ -51,7 +51,7 @@ class SessionController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateSessionRequest $request, Session $session)
+    public function update(UpdateAttendeeRequest $request, Attendee $attendee)
     {
         //
     }
@@ -59,7 +59,7 @@ class SessionController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Session $session)
+    public function destroy(Attendee $attendee)
     {
         //
     }
