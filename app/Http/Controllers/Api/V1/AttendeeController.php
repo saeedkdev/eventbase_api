@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\Api\V1;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\StoreAttendeeRequest;
-use App\Http\Requests\UpdateAttendeeRequest;
+use App\Http\Requests\V1\StoreAttendeeRequest;
+use App\Http\Requests\V1\UpdateAttendeeRequest;
 use App\Models\Attendee;
 use Illuminate\Database\Eloquent\Collection;
 use App\Http\Resources\V1\AttendeeResource;
@@ -38,8 +38,8 @@ class AttendeeController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreAttendeeRequest $request): void {
-        //
+    public function store(StoreAttendeeRequest $request): AttendeeResource {
+        return new AttendeeResource(Attendee::create($request->all()));
     }
 
     /**
@@ -56,17 +56,10 @@ class AttendeeController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Attendee $attendee): void {
-        //
-    }
-
-    /**
      * Update the specified resource in storage.
      */
     public function update(UpdateAttendeeRequest $request, Attendee $attendee): void {
-        //
+        $attendee->update($request->all());
     }
 
     /**
