@@ -4,6 +4,7 @@ namespace App\Http\Resources\V1;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
+use App\Http\Resources\V1\AgendaSlotResource;
 
 class AgendaResource extends JsonResource
 {
@@ -18,6 +19,7 @@ class AgendaResource extends JsonResource
             'id' => $this->id,
             'attendeeID' => $this->attendee_id,
             'title' => $this->title,
+            'agendaSlots' => AgendaSlotResource::collection($this->whenLoaded('agendaSlots')),
         ];
     }
 }

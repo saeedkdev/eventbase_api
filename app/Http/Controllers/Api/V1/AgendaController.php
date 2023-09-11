@@ -21,12 +21,15 @@ class AgendaController extends Controller
         $query = new AgendaQuery();
         $queryItems = $query->transform($request);
 
-        if(empty($queryItems)) {
-            return new AgendaCollection(Agenda::paginate());
-        } else {
-            return new AgendaCollection(Agenda::where($queryItems)->paginate());
+        $slots = $request->query('slots');
+
+        $agendas = Agenda::where($queryItems);
+
+        if ($slots) {
+            $agendas = $agendas->with('agendaSlots');
         }
 
+        return new AgendaCollection($agendas->paginate()->appends($request->query()));
     }
 
     /**
@@ -40,6 +43,10 @@ class AgendaController extends Controller
      * Display the specified resource.
      */
     public function show(Agenda $agenda): AgendaResource {
+        $slots = request()->query('slots');
+        if($slots) {
+            return new AgendaResource($agenda->loadMissing('agendaSlots'));
+        }
         return new AgendaResource($agenda);
     }
 
