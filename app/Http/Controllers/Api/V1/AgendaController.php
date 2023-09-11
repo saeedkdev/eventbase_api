@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\Api\V1;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\StoreAgendaRequest;
-use App\Http\Requests\UpdateAgendaRequest;
+use App\Http\Requests\V1\StoreAgendaRequest;
+use App\Http\Requests\V1\UpdateAgendaRequest;
 use App\Http\Resources\V1\AgendaResource;
 use App\Http\Resources\V1\AgendaCollection;
 use App\Models\Agenda;
@@ -30,19 +30,10 @@ class AgendaController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     */
-    public function create(): void
-    {
-        //
-    }
-
-    /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreAgendaRequest $request): void
-    {
-        //
+    public function store(StoreAgendaRequest $request): AgendaResource {
+        return new AgendaResource(Agenda::create($request->all()));
     }
 
     /**
@@ -53,19 +44,11 @@ class AgendaController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Agenda $agenda): void
-    {
-        //
-    }
-
-    /**
      * Update the specified resource in storage.
      */
     public function update(UpdateAgendaRequest $request, Agenda $agenda): void
     {
-        //
+        $agenda->update($request->all());
     }
 
     /**
@@ -73,6 +56,6 @@ class AgendaController extends Controller
      */
     public function destroy(Agenda $agenda): void
     {
-        //
+        $agenda->delete();
     }
 }

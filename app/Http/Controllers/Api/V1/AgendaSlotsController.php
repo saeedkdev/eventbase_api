@@ -3,11 +3,11 @@
 namespace App\Http\Controllers\Api\V1;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\StoreAgendaSlotsRequest;
-use App\Http\Requests\UpdateAgendaSlotsRequest;
+use App\Http\Requests\V1\StoreAgendaSlotsRequest;
+use App\Http\Requests\V1\UpdateAgendaSlotsRequest;
 use App\Models\AgendaSlots;
 use App\Services\V1\AgendaSlotsQuery;
-use App\Http\Resources\V1\AgendaSlotsResource;
+use App\Http\Resources\V1\AgendaSlotResource;
 use App\Http\Resources\V1\AgendaSlotsCollection;
 use Illuminate\Http\Request;
 
@@ -30,42 +30,24 @@ class AgendaSlotsController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     */
-    public function create(): void
-    {
-        //
-    }
-
-    /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreAgendaSlotsRequest $request): void
-    {
-        //
+    public function store(StoreAgendaSlotsRequest $request): AgendaSlotResource {
+        return new AgendaSlotResource(AgendaSlots::create($request->all()));
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(AgendaSlots $agendaSlots) : AgendaSlotsResource {
-        return new AgendaSlotsResource($agendaSlots);
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(AgendaSlots $agendaSlots): void
-    {
-        //
+    public function show(AgendaSlots $agendaSlot) : AgendaSlotResource {
+        return new AgendaSlotResource($agendaSlot);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateAgendaSlotsRequest $request, AgendaSlots $agendaSlots): void
-    {
-        //
+    public function update(UpdateAgendaSlotsRequest $request, AgendaSlots $agendaSlots): void {
+        $agendaSlots->update($request->all());
     }
 
     /**

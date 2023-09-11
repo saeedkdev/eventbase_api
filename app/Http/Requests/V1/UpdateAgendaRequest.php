@@ -11,7 +11,7 @@ class UpdateAgendaRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -21,8 +21,27 @@ class UpdateAgendaRequest extends FormRequest
      */
     public function rules(): array
     {
-        return [
-            //
-        ];
+        $method = $this->method();
+
+        if($method === 'PUT') {
+            return [
+                'attendeeID' => ['required'],
+                'title' => ['required'],
+            ];
+        } else {
+            return [
+                'attendeeID' => ['sometimes', 'required'],
+                'title' => ['sometimes', 'required'],
+            ];
+        }
+    }
+
+    protected function prepareForValidation() {
+        if($this->attendeeID) {
+            $this->merge([
+                'attendee_id' => $this->attendeeID,
+            ]);
+        }
+
     }
 }

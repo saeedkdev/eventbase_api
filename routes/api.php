@@ -30,6 +30,5 @@ Route::group(['prefix' => 'v1', 'namespace' => 'App\Http\Controllers\Api\V1'], f
     Route::apiResource('sessions', SessionController::class);
     Route::apiResource('sponsors', SponsorController::class);
     Route::apiResource('agendas', AgendaController::class);
-    Route::apiResource('agenda-slots', AgendaSlotsController::class);
-
+    Route::apiResource('slots', AgendaSlotsController::class);
 });

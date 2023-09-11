@@ -10,6 +10,12 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 class Agenda extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'title',
+        'attendee_id',
+    ];
+
     /**
      * @return BelongsTo
      */

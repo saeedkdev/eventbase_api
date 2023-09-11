@@ -11,6 +11,15 @@ class AgendaSlots extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'details',
+        'agenda_id',
+        'session_id',
+        'start_time',
+        'end_time',
+        'date',
+    ];
+
     public function agenda(): BelongsTo {
         return $this->belongsTo(Agenda::class);
     }

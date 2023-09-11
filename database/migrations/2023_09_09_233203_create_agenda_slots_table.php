@@ -14,10 +14,10 @@ return new class extends Migration
         Schema::create('agenda_slots', function (Blueprint $table) {
             $table->id();
             $table->unsignedInteger('agenda_id');
-            $table->unsignedInteger('session_id');
+            $table->unsignedInteger('session_id')->nullable();
             $table->dateTime('start_time');
             $table->dateTime('end_time');
-            $table->date('date');
+            $table->date('date')->nullable();
             $table->text('details');
             $table->timestamps();
         });

@@ -11,7 +11,7 @@ class StoreAgendaRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,15 @@ class StoreAgendaRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'attendeeID' => ['required'],
+            'title' => ['required'],
         ];
+    }
+
+    protected function prepareForValidation() {
+        $this->merge([
+            'attendee_id' => $this->attendeeID,
+        ]);
+
     }
 }
